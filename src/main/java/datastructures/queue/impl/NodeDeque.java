@@ -91,11 +91,8 @@ public class NodeDeque<T> implements Deque<T> {
     }
 
     static class Node {
-
         private Object value;
-
         Node next;
-
         Node prev;
 
         Node (Object value) {
