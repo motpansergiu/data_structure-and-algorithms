@@ -8,7 +8,7 @@ public class NodeStack<T> implements Stack<T> {
 
     @Override
     public T pop() {
-        if (null == head ) {
+        if (null == head) {
             return null;
         }
 
@@ -34,7 +34,7 @@ public class NodeStack<T> implements Stack<T> {
     @Override
     public T peek() {
 
-        if (null == head ) {
+        if (null == head) {
             return null;
         }
 

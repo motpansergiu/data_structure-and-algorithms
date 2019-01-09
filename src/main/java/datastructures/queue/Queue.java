@@ -2,7 +2,7 @@ package datastructures.queue;
 
 public interface Queue<T> {
 
-    void enqueue (T value);
+    void enqueue(T value);
 
     T dequeue();
 

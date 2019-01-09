@@ -90,17 +90,6 @@ public class NodeDeque<T> implements Deque<T> {
         return null == head;
     }
 
-    static class Node {
-        private Object value;
-        Node next;
-        Node prev;
-
-        Node (Object value) {
-            this.value = value;
-        }
-
-    }
-
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
@@ -115,6 +104,17 @@ public class NodeDeque<T> implements Deque<T> {
         sb.append("]");
 
         return sb.toString();
+
+    }
+
+    static class Node {
+        Node next;
+        Node prev;
+        private Object value;
+
+        Node(Object value) {
+            this.value = value;
+        }
 
     }
 }

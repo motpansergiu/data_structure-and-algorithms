@@ -2,9 +2,9 @@ package datastructures.queue;
 
 public interface Deque<T> {
 
-    void addFirst (T value);
+    void addFirst(T value);
 
-    void addLast (T value);
+    void addLast(T value);
 
     T pollFirst();
 

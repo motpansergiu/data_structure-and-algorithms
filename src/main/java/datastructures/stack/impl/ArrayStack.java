@@ -6,7 +6,7 @@ public class ArrayStack<T> implements Stack<T> {
 
     private static final int INITIAL_SIZE = 8;
 
-    private Object [] values;
+    private Object[] values;
     private int top;
 
 
