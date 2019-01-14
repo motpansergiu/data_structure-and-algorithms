@@ -54,4 +54,19 @@ public class NodeStack<T> implements Stack<T> {
             this.value = value;
         }
     }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("[ ");
+
+        Node temp = head;
+        while (temp != null) {
+            sb.append(temp.value).append(" ");
+            temp = temp.next;
+        }
+
+        sb.append("]");
+        return sb.toString();
+    }
 }
