@@ -9,21 +9,24 @@ public class CircularVectorQueue<T> implements Queue<T> {
     private int tail;
     private int size;
     private Object [] elements;
+    private int numberOfElements;
 
     public CircularVectorQueue(int size) {
         this.elements = new Object[size];
         this.size = size;
         this.head = -1;
         this.tail = -1;
+        this.numberOfElements = 0;
     }
 
     @Override
     public void enqueue(T value) {
 
         if (isFull()) {
-            System.out.println("Queue is full!");
-            return;
+            throw new IllegalStateException("Queue is full");
         }
+
+         ++ numberOfElements;
 
         if (isEmpty()) {
             head = 0;
@@ -49,9 +52,10 @@ public class CircularVectorQueue<T> implements Queue<T> {
     public T dequeue() {
 
         if (isEmpty()) {
-            System.out.println("Queue is empty!");
-            return null;
+            throw new IllegalStateException("Queue is full");
         }
+
+        -- numberOfElements;
 
         if (head == tail) {
             T value = (T) elements[head];
@@ -86,6 +90,11 @@ public class CircularVectorQueue<T> implements Queue<T> {
     @Override
     public boolean isEmpty() {
         return (head == -1);
+    }
+
+    @Override
+    public int size() {
+        return numberOfElements;
     }
 
     @Override
