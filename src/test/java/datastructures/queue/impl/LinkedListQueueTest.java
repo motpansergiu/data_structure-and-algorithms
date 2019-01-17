@@ -6,14 +6,14 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class CircularVectorQueueTest {
+class LinkedListQueueTest {
 
     private static final int SIZE = 5;
     private Queue<Integer> queue;
 
     @BeforeEach
     public void init() {
-        queue = new CircularVectorQueue<>(SIZE);
+        queue = new LinkedListQueue<>();
     }
 
     @Test
@@ -62,4 +62,5 @@ class CircularVectorQueueTest {
     void isEmpty() {
         assertTrue(queue.isEmpty());
     }
+
 }

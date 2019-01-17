@@ -84,7 +84,7 @@ public class CircularVectorQueue<T> implements Queue<T> {
             return null;
         }
 
-        return (T) elements[head];
+        return (T) elements[tail];
     }
 
     @Override
