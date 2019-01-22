@@ -5,13 +5,13 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class RadixSortUsing10QueuesMSDTest {
+class RadixSortUsingCountingSortTest {
 
-    private RadixSortUsing10QueuesMSD sort;
+    private RadixSortUsingCountingSort sort;
 
     @BeforeEach
     public void init() {
-        sort = new RadixSortUsing10QueuesMSD();
+        sort = new RadixSortUsingCountingSort();
     }
 
     @Test
@@ -20,6 +20,9 @@ class RadixSortUsing10QueuesMSDTest {
         int [] sorted = {0, 7, 10, 32, 47, 47, 51, 58, 112, 2001};
 
         sort.sort(input);
+
+        for (int i = 0; i < input.length; ++i)
+            System.out.print(input[i] + " ");
 
         assertArrayEquals(sorted, input);
 

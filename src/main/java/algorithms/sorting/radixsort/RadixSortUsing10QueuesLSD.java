@@ -3,13 +3,13 @@ package algorithms.sorting.radixsort;
 import datastructures.queue.Queue;
 import datastructures.queue.impl.LinkedListQueue;
 
-public class RadixSortUsing10QueuesMSD {
+public class RadixSortUsing10QueuesLSD {
 
     private static final int STACK_NUMBER = 10;
 
     private final Queue<Integer> [] queues;
 
-    public RadixSortUsing10QueuesMSD() {
+    public RadixSortUsing10QueuesLSD() {
         queues = new Queue[STACK_NUMBER];
 
         for (int i = 0; i < STACK_NUMBER; ++i) {
@@ -17,24 +17,16 @@ public class RadixSortUsing10QueuesMSD {
         }
     }
 
-    // TODO inefficient - is doing one useless iteration
     public void sort(int [] values) {
         if (null == values) {
             return;
         }
-        int power = 1;
-        boolean isDiv = true;
 
-        while (isDiv) {
+        int max = getMax(values);
+        for (int power = 1; max/power > 0; power *= 10) {
             splitValuesIntoQueues(values, power);
-            isDiv = isDividable(queues[0].size(), values.length);
             emptyQueues(values);
-            power ++;
         }
-    }
-
-    private boolean isDividable(int queueSize, int arrayLength) {
-        return queueSize != arrayLength;
     }
 
     private void splitValuesIntoQueues(int[] values, int power) {
@@ -55,8 +47,15 @@ public class RadixSortUsing10QueuesMSD {
     }
 
     private int getDigit(int value, int power) {
-        return  (int) (value % (Math.pow(10, power)) / Math.pow(10, power - 1));
+        return (value / power) % 10;
     }
 
-
+    private int getMax(int [] input)
+    {
+        int max = input[0];
+        for (int i = 1; i < input.length; i++)
+            if (input[i] > max)
+                max = input[i];
+        return max;
+    }
 }
